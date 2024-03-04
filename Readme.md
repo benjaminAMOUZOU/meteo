@@ -13,4 +13,4 @@ Une application minimaliste pour récupérer le temps qu'il fait dans une ville
 - Nodemon 3.1.0 (Hot Reload).
 
 #### Utilisation
-- Renseignez la ville puis choisissez le type de temperature Celsius ou Fahrenheit.
+- Renseignez la ville puis choisissez le type de temperature Celsius ou Kelvin.
