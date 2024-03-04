@@ -14,3 +14,8 @@ Une application minimaliste pour récupérer le temps qu'il fait dans une ville
 
 #### Utilisation
 - Renseignez la ville puis choisissez le type de temperature Celsius ou Kelvin.
+
+#### Un apeçu
+<div align="center">
+![Aperçu](./images/apercu.png)
+</div>
