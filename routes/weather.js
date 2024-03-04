@@ -25,13 +25,14 @@ weatherRoute.post("/", (req, res) => {
             // res.write(`&lt;h1&gt;Il fait ${temperature} degree celsius à ${cityName} et l'image corresponante est  ${weatherDes} &lt;/h1&gt;`)
             // res.write("&lt;img src=" + imageURL + "&gt;")
             // res.send()
-            res.render(path.join(__dirname, '../templates/') + "weather.ejs",
+            res.render(path.join(__dirname, '../templates/') + "index.ejs",
                 {
                     temperature: temperature,
                     weatherDes: weatherDes,
                     icon: icon,
                     imageURL: imageURL,
-                    cityName: cityName
+                    cityName: cityName,
+                    unit: unit
                 }
             );
         })
