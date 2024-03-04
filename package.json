@@ -1,0 +1,17 @@
+{
+  "name": "weathermicroservice",
+  "version": "1.0.0",
+  "description": "Microservcie for weather",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+    "express": "^4.18.3",
+    "nodemon": "^3.1.0"
+  }
+}
