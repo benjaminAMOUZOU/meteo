@@ -4,7 +4,7 @@ var path = require('path');
 
 const weatherRoute = express.Router();
 weatherRoute.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '../') + "index.html");
+    res.render(path.join(__dirname, '../templates/') + "index.ejs");
 })
 
 weatherRoute.post("/", (req, res) => {
@@ -25,7 +25,7 @@ weatherRoute.post("/", (req, res) => {
             // res.write(`&lt;h1&gt;Il fait ${temperature} degree celsius à ${cityName} et l'image corresponante est  ${weatherDes} &lt;/h1&gt;`)
             // res.write("&lt;img src=" + imageURL + "&gt;")
             // res.send()
-            res.sendFile(path.join(__dirname, '../') + "weather.html",
+            res.render(path.join(__dirname, '../templates/') + "weather.ejs",
                 {
                     temperature: temperature,
                     weatherDes: weatherDes,

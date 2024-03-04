@@ -9,7 +9,8 @@ aboutRoute.get("/", (req, res) => {
         description: properties.description,
         author: properties.author
     }
-    res.json(aboutInfo)
+
+    res.render(path.join(__dirname, '../templates/') + "about.ejs", aboutInfo)
 })
 
 module.exports = aboutRoute
