@@ -11,6 +11,11 @@ weatherRoute.post("/", (req, res) => {
     const city = req.body.cityName
     const appiKey = "3972594e26757a87efbf3101795c78dc"
     const unit = req.body.unit
+    var systeme = "C";
+
+    if(unit == "") {
+        systeme = "K"
+    }
 
     const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + appiKey + "&units=" + unit + ""
     https.get(url, (response) => {
@@ -32,7 +37,8 @@ weatherRoute.post("/", (req, res) => {
                     icon: icon,
                     imageURL: imageURL,
                     cityName: cityName,
-                    unit: unit
+                    unit: unit,
+                    systeme: systeme
                 }
             );
         })

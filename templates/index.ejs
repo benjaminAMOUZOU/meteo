@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-success text-center my-3">Une application météo basic avec Node.js</h3>
+                <h3 class="text-success text-center my-3">Une application météo basique avec Node.js</h3>
             </div>
             <div class="offset-lg-1 col-lg-4">
                 <p class="fw-bold">Entrez les détails pour avoir la météo</p>
@@ -28,13 +28,26 @@
                         <div class="offset-lg-1 col-lg-4">
                             <label for="cityInput" class="label">Ville: </label>
                             <input type="text" name="cityName" placeholder="Saississez la ville" id="cityInput"
-                                class="form-control mt-2" value=<% if (typeof cityName !== 'undefined') {  %> <%= cityName %> <% } %>>
+                                class="form-control mt-2" value=<% if (typeof cityName !=='undefined' ) { %>
+                            <%= cityName %>
+                                <% } %>>
                         </div>
 
                         <div class="col-lg-4">
                             <label for="unitInput" class="label">Unité</label>
-                            <input type="text" name="unit" placeholder="Entrez une unité" id="unitInput"
-                                class="form-control mt-2" value=<% if (typeof unit !== 'undefined') {  %> <%= unit %> <% } %>/>
+                            <select name="unit" id="" class="form-control mt-2">
+                                <option disabled>Chosissez une unité</option>
+                                <option <% if (typeof unit !=='undefined' && unit=="metric" ) { %>
+                                    <%= "selected" %>
+                                        <% } %> value="metric">Celsius
+                                </option>
+                                <option <% if (typeof unit !=='undefined' && unit=="" ) { %>
+                                    <%= "selected" %>
+                                        <% } %> value="">Kelvin
+                                </option>
+                            </select>
+                            <!-- <input type="text" name="unit" placeholder="Entrez une unité" id="unitInput"
+                                class="form-control mt-2" value=<% if (typeof unit !== 'undefined') {  %> <%= unit %> <% } %>/> -->
                         </div>
 
                         <div class="col-lg-2 mt-4">
@@ -47,11 +60,14 @@
 
         <div class="row mt-4">
             <div class="offset-lg-1 col-lg-11">
-                <span class="alert alert-success">
-                    <% if (typeof temperature !== 'undefined') {  %>
-                        <span>Il fait  <span class="text-success fw-bold"><%= temperature %></span> °C à  <%= cityName %></span> et l'image corresponante est <img src=<%= imageURL %> alt="Image"></span>
-                    <% } %>
+                <% if (typeof temperature !=='undefined' ) { %>
+                    <span class="alert alert-success">
+                        <span>Il fait <span class="text-success fw-bold">
+                                <%= temperature %>
+                        </span> °<%= systeme  %> à <%= cityName %></span> et l'image corresponante est <img src=<%=imageURL %>
+                        alt="Image"></span>
                     </span>
+                <% } %>
             </div>
         </div>
 

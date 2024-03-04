@@ -1,5 +1,5 @@
 {
-  "name": "weathermicroservice",
+  "name": "meteo",
   "version": "1.0.0",
   "description": "Petite application web avec Node.js",
   "main": "index.js",
@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
-    "bootstrap": "^5.3.3",
     "ejs": "^3.1.9",
     "express": "^4.18.3",
     "nodemon": "^3.1.0"
