@@ -21,6 +21,7 @@
 // })
 const https = require('https')
 const fastify = require('fastify')({ logger: false })
+const axios = require('axios');
 
 fastify.register(require('@fastify/formbody'))
 
@@ -38,7 +39,7 @@ fastify.get("/weather", (req, reply) => {
     reply.view("/templates/index.ejs");
 });
 
-fastify.post("/weather", (req, reply) => {
+fastify.post("/weather", async (req, reply) => {
     const city = req.body.cityName
     const appiKey = "3972594e26757a87efbf3101795c78dc"
     const unit = req.body.unit
@@ -51,18 +52,13 @@ fastify.post("/weather", (req, reply) => {
 
     const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + appiKey + "&units=" + unit + ""
 
-    https.get(url, (response) => {
-        response.on("data", (chunk) => {
-            responseData = JSON.parse(chunk);
-            temperature = responseData.main.temp;
-            weatherDes = responseData.weather[0].description;
-            icon = responseData.weather[0].icon;
-            imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
-            cityName = responseData.name;
-        })
-    });
-
-    console.log("La temperature: " + temperature)
+    var response = await axios.get(url);
+    responseData = response.data;
+    temperature = responseData.main.temp;
+    weatherDes = responseData.weather[0].description;
+    icon = responseData.weather[0].icon;
+    imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+    cityName = responseData.name;
 
     reply.view("/templates/index.ejs",
         {
