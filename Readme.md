@@ -4,7 +4,7 @@ Une application minimaliste pour récupérer le temps qu'il fait dans une ville
 #### Installation
 - Il suffit de cloner le projet: `git clone git clone git@gitlab.com:benjaminAMOUZOU/meteo.git` ;
 - Ensuite executez `npm install` pour installez les dépendances ;
-- Enfin `node index.js` pour exécuter le projet.
+- Enfin `nodemon index.js` pour exécuter le projet.
 
 #### Outils
 - Node.js 20 ;
