@@ -1,25 +1,3 @@
-// const express = require("express");
-// const bodyParser = require("body-parser")
-// const aboutRouter = require("./routes/about");
-// const weatherRouter = require("./routes/weather");
-
-// const PORT = 3000;
-// const HOST_NAME = "localhost";
-
-// const app = express();
-
-// app.use(express.static("client"));
-// app.set('view engine', 'ejs')
-// app.use(bodyParser.urlencoded({ extended: true }));
-
-// app.use("/weather", weatherRouter);
-// app.use("/", weatherRouter)
-// app.use("/about", aboutRouter);
-
-// app.listen(PORT, HOST_NAME, () => {
-//     console.log(`Server running at ${HOST_NAME}:${PORT}`)
-// })
-const https = require('https')
 const fastify = require('fastify')({ logger: false })
 const axios = require('axios');
 
@@ -52,25 +30,29 @@ fastify.post("/weather", async (req, reply) => {
 
     const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + appiKey + "&units=" + unit + ""
 
-    var response = await axios.get(url);
-    responseData = response.data;
-    temperature = responseData.main.temp;
-    weatherDes = responseData.weather[0].description;
-    icon = responseData.weather[0].icon;
-    imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
-    cityName = responseData.name;
+    try {
+        var response = await axios.get(url);
+        responseData = response.data;
+        temperature = responseData.main.temp;
+        weatherDes = responseData.weather[0].description;
+        icon = responseData.weather[0].icon;
+        imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+        cityName = responseData.name;
 
-    reply.view("/templates/index.ejs",
-        {
-            temperature: temperature,
-            weatherDes: weatherDes,
-            icon: icon,
-            imageURL: imageURL,
-            cityName: cityName,
-            unit: unit,
-            systeme: systeme
-        }
-    );
+        await reply.view("/templates/index.ejs",
+            {
+                temperature: temperature,
+                weatherDes: weatherDes,
+                icon: icon,
+                imageURL: imageURL,
+                cityName: cityName,
+                unit: unit,
+                systeme: systeme
+            }
+        );
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 // Run the server!

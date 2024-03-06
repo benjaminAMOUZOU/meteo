@@ -12,7 +12,6 @@
     "@fastify/formbody": "^7.4.0",
     "@fastify/view": "^9.0.0",
     "axios": "^1.6.7",
-    "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
     "fastify": "^4.26.2",
     "nodemon": "^3.1.0"

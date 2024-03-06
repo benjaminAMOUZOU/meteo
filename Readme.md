@@ -8,9 +8,12 @@ Une application minimaliste pour récupérer le temps qu'il fait dans une ville
 
 #### Outils
 - Node.js 20 ;
-- Ejs 3.1.9 (Moteur de template);
-- Express 4.18.1 suivant la branche ;
-- Nodemon 3.1.0 (Hot Reload).
+- Ejs 3.1.9 (Moteur de template) ;
+- Fastify 4.26.2 ;
+- Nodemon 3.1.0 (Hot Reload) ;
+- Fastify/formbody: 7.4.0 ;
+- Fastify/view: 9.0.0 ;
+- Axios 1.6.7 ;
 
 #### Utilisation
 - Renseignez la ville puis choisissez le type de temperature Celsius ou Kelvin.
