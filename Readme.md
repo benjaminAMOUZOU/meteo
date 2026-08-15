@@ -20,5 +20,7 @@ Une application minimaliste pour récupérer le temps qu'il fait dans une ville
 
 #### Un apeçu
 <div align="center">
+  
 ![Aperçu](./images/apercu.png)
+
 </div>
